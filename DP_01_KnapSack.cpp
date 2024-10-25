@@ -30,15 +30,11 @@ int main() {
    cout << "Enter the maximum weight of the knapsack: ";
    cin >> W;
 
-   vector<int> value;
-   vector<int> weight;
+   vector<int> value(n), weight(n);
 
    for (int i = 0; i < n; i++) {
-      int val, wt;
       cout << "Enter value and weight for item " << i + 1 << ": ";
-      cin >> val >> wt;
-      value.emplace_back(val);
-      weight.emplace_back(wt);
+      cin >> value[i] >> weight[i];
    }
 
    Solution obj;
