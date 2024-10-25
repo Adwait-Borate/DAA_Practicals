@@ -27,7 +27,7 @@ void findSubsetsWithSum(const vector<int>& weights, int target, vector<int>& cur
 }
 
 int main() {
-    int M;  // Target sum
+    int target_sum;  // Target sum
     int n;  // Number of weights
 
     // Prompt user for input
@@ -41,12 +41,12 @@ int main() {
     }
 
     cout << "Enter the target sum: ";
-    cin >> M;  // Input target sum
+    cin >> target_sum;  // Input target sum
 
     // Print subsets that sum to M
-    cout << "Subsets with sum " << M << " found:\n";
+    cout << "Subsets with sum " << target_sum << " found:\n";
     vector<int> current;  // Vector to hold the current subset
-    findSubsetsWithSum(weights, M, current, 0, 0);  // Start backtracking
+    findSubsetsWithSum(weights, target_sum, current, 0, 0);  // Start backtracking
 
     return 0;
 }

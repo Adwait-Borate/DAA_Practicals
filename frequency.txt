@@ -1,0 +1,8 @@
+FREQUENCY OF QUESTIONS ASKED IN PRACTICAL EXAM.
+
+1. Fractional KnapSack -5
+2. 0-1 KnapSack -5
+3. Bellman Ford -3
+4. N-Queen-4
+5. Travelling Saleman(TSP)-1
+6. Subset Sum-3
