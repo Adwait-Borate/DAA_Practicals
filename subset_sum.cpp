@@ -3,30 +3,31 @@
 using namespace std;
 
 // Function to find and print all subsets that sum to M
-void findSubsetsWithSum(const vector<int>& weights, int target, vector<int>& current, int index) {
-    // Calculate the current subset sum
-    int sum = 0;
-    for (int num : current) sum += num;
-
-    // If the sum matches the target, print the current subset
-    if (sum == target) {
+void findSubsetsWithSum(const vector<int>& weights, int target, vector<int>& current, int index, int currentSum) {
+    if (currentSum == target) {  // Base case: if current sum matches the target
         cout << "{ ";
         for (int num : current) {
             cout << num << " ";
         }
         cout << "}" << endl;
+        return;
     }
 
-    // Backtracking to find all combinations
-    for (int i = index; i < weights.size(); ++i) {
-        current.push_back(weights[i]); // Include current element
-        findSubsetsWithSum(weights, target, current, i + 1); // Recur
-        current.pop_back(); // Remove last element (backtrack)
+    if (index >= weights.size() || currentSum > target) {  // Stop if out of bounds or sum exceeded
+        return;
     }
+
+    // Take the element
+    current.push_back(weights[index]);
+    findSubsetsWithSum(weights, target, current, index + 1, currentSum + weights[index]);
+    current.pop_back();  // Backtrack
+
+    // Not take the element
+    findSubsetsWithSum(weights, target, current, index + 1, currentSum);
 }
 
 int main() {
-    int M = 35; // Target sum
+    int M = 35;  // Target sum
     int choice;
 
     // Prompt user for input
@@ -49,8 +50,8 @@ int main() {
 
     // Print subsets that sum to M
     cout << "Subsets with sum " << M << " found:\n";
-    vector<int> current; // Vector to hold the current subset
-    findSubsetsWithSum(weights, M, current, 0); // Start backtracking
+    vector<int> current;  // Vector to hold the current subset
+    findSubsetsWithSum(weights, M, current, 0, 0);  // Start backtracking
 
     return 0;
 }
