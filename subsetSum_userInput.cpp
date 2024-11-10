@@ -13,7 +13,7 @@ void findSubsetsWithSum(const vector<int>& weights, int target, vector<int>& cur
         return;
     }
 
-    if (index >= weights.size() || currentSum > target) {  // Stop if out of bounds or sum exceeded
+    if (index >= weights.size() || currentSum > target) {  // Stop if out of bounds or sum exceeded - OBSE
         return;
     }
 
